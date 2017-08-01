@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use rspec for testing
+gem 'rspec', '~> 3.6'
 # Use rubocop for code style checking
 gem 'rubocop', '~> 0.49.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
