@@ -1,7 +1,3 @@
 class LandingController < ApplicationController
-
-  def index
-    p "hola"
-  end
-
+  def index; end
 end
