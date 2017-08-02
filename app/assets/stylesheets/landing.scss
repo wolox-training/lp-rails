@@ -1,6 +1,18 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
 $orange: #f5c85f;
 $gray-bg: #EEEEEE;
 $dark-gray: #111111;
@@ -8,7 +20,45 @@ $gray-text: #999999;
 
 $font-principal: Open Sans, sans-serif;
 
+$break-medium: 800px;
+
 html, body{
   font: $font-principal;
   color: $gray-text;
 }
+
+.principal{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+
+#logo{
+  align-self: center;
+}
+
+
+#bar-separator{
+  align-self: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 3px;
+  height: 300px;
+  background-image: linear-gradient(#fff, $orange, #fff);
+}
+
+#bar-header{
+  width:100%;
+  height: 9px;
+  background: $orange;
+}
+
+.medium-hide{
+  @media screen and (max-width: $break-medium) {
+    display: none;
+  }
+}
+
