@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use slim for html
+gem 'slim', '~> 3.0.8'
 # Use rspec for testing
 gem 'rspec', '~> 3.6'
 # Use rubocop for code style checking
