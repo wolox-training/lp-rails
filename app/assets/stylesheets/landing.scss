@@ -1,3 +1,14 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$orange: #f5c85f;
+$gray-bg: #EEEEEE;
+$dark-gray: #111111;
+$gray-text: #999999;
+
+$font-principal: Open Sans, sans-serif;
+
+html, body{
+  font: $font-principal;
+  color: $gray-text;
+}
