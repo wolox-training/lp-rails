@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title The Cheese Guardian
+    link rel="icon" type="image/png"
+    link rel="stylesheet" type="text/css" href=asset_path("landing.scss")
+
+  body
+    div id="bar-header"
+    div class="principal"
+      img id="phone" class="item medium-hide" src=asset_path("phone.png")
+      div id="bar-separator" class="item medium-hide"
+      img id="logo" class="item" src=asset_path("tcg_logo.png")
+
+
+
+    == yield
+
+
