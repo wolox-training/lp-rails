@@ -18,21 +18,58 @@ $gray-bg: #EEEEEE;
 $dark-gray: #111111;
 $gray-text: #999999;
 
-$font-principal: Open Sans, sans-serif;
+$font-principal: 'Open Sans', sans-serif;
 
 $break-medium: 800px;
 
 html, body{
-  font: $font-principal;
+  font: 100% $font-principal;
   color: $gray-text;
 }
 
-.principal{
+.flex-list{
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: flex-start;
-  margin-top: 40px;
+}
+
+.decorator{
+  height:12px;
+  width: 100%;
+  background-image: url(asset_path("triangle.png"));
+}
+
+#principal{
+  margin-top: 45px;
+  padding-bottom: 60px;
+}
+
+#features{
+  padding-top: 60px;
+  padding-bottom: 100px;
+  justify-content: space-around;
+  text-align: center;
+  background: $gray-bg;
+  flex-wrap: wrap;
+
+  .item{
+    @media screen and (max-width: $break-medium) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .item h3{
+    margin-top: 10px;
+    color: $dark-gray;
+    font-weight: 600;
+  }
+
+  .item p{
+    margin-top: 15px;
+    max-width: 220px;
+    font-weight: 600;
+  }
 }
 
 
