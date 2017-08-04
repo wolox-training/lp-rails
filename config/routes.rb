@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get '/', to: 'landing#index', as: 'landing'
+  devise_for :users
+  root to: 'landing#index', as: 'landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
