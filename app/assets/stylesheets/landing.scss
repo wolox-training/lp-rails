@@ -45,6 +45,40 @@ html, body{
   padding-bottom: 60px;
 }
 
+#footer{
+  display: flex;
+  background: $orange;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 190px;
+
+  h2{
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  input[type=text]{
+    width: 350px;
+    height: 40px;
+    border: 0;
+    border-radius: 14px;
+  }
+
+  input[type=submit]{
+    height: 40px;
+    width: 125px;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid #fff;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 500;
+  }
+
+}
+
 #features{
   padding-top: 60px;
   padding-bottom: 100px;

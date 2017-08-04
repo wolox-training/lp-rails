@@ -7,7 +7,9 @@ html
       img id="phone" class="item medium-hide" src=asset_path("phone.png")
       div id="bar-separator" class="item medium-hide"
       img id="logo" class="item" src=asset_path("tcg_logo.png")
+
     div class="decorator"
+
     div id="features" class="flex-list"
       div class="item"
         img src=asset_path("ic_list.png")
@@ -22,6 +24,7 @@ html
         h3 No interned needed
         p All your debts are kept safe in your phone.
 
+    = render 'footer'
 
     == yield
 
