@@ -1,15 +1,5 @@
-@mixin linear-gradient($direction, $color-stops...) {
-  background: nth(nth($color-stops, 1), 1);
-  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
-  background: linear-gradient($direction, $color-stops);
-}
-
 $orange: #F5C85F;
 $gray-bg: #EEEEEE;
 $dark-gray: #111111;
 $gray-text: #999999;
 $white: #FFFFFF;
-
-$font-principal: 'Open Sans', sans-serif;
-
-$break-medium: 800px;

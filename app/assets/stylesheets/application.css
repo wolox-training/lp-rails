@@ -12,6 +12,8 @@
  *
  *= require 'reset'
  *= require 'color'
+ *= require 'mixins'
+ *= require 'variables'
  *= require 'font-opensans'
  *= require 'landing'
  *= require_self

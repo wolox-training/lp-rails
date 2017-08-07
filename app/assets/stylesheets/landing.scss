@@ -1,4 +1,6 @@
 @import 'color';
+@import 'mixins';
+@import 'variables';
 
 html, body {
   font: 100% $font-principal;
