@@ -2,3 +2,8 @@ Documentation:
    Enabled: false
 LineLength:
    Max: 99
+AllCops:
+  Exclude:
+    - 'app/authentication/*'
+    - 'app/controllers/api/v1/sessions_controller.rb'
+    - 'app/controllers/api_controller.rb'
