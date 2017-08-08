@@ -2,8 +2,12 @@ Documentation:
    Enabled: false
 LineLength:
    Max: 99
-AllCops:
-  Exclude:
-    - 'app/authentication/*'
-    - 'app/controllers/api/v1/sessions_controller.rb'
-    - 'app/controllers/api_controller.rb'
+Rails/Blank:
+  Description: 'Enforce using `blank?` and `present?`.'
+  Enabled: false
+  # Convert checks for `nil` or `empty?` to `blank?`
+  NilOrEmpty: true
+  # Convert usages of not `present?` to `blank?`
+  NotPresent: false
+  # Convert usages of `unless` `present?` to `if` `blank?`
+  UnlessPresent: false
