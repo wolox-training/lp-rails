@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'versionist'
+gem 'jwt'
 gem 'devise'
 # Use slim for html
 gem 'slim', '~> 3.0.8'
