@@ -5,13 +5,24 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+group :test do
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'shoulda-matchers', '~> 3.1'
+end
+group :development, :test do
+  gem 'factory_girl_rails', require: false
+end
 gem 'versionist'
 gem 'jwt'
 gem 'devise'
 # Use slim for html
 gem 'slim', '~> 3.0.8'
 # Use rspec for testing
-gem 'rspec', '~> 3.6'
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
 # Use rubocop for code style checking
 gem 'rubocop', '~> 0.49.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
