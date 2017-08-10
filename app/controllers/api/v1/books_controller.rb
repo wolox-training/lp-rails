@@ -1,7 +1,6 @@
 module Api
   module V1
     class BooksController < ApiController
-
       def index
         books = Book.all.each do |book|
           BookSerializer.new(book)
