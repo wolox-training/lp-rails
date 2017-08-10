@@ -9,9 +9,7 @@ describe Rent, type: :model do
   let(:user) { create(:user) }
   let(:book) { create(:book) }
 
-  subject(:rent) do
-    create(:rent, user: user, book: book)
-  end
+  subject(:rent) { create(:rent, user: user, book: book) }
 
   it 'has a valid factory' do
     is_expected.to be_valid
