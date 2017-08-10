@@ -15,5 +15,6 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :books, only: %i[show index]
   end
 end
