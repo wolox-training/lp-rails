@@ -8,9 +8,7 @@ describe Book, type: :model do
   it { validate_presence_of(:publisher) }
   it { validate_presence_of(:year) }
 
-  subject(:book) do
-    create(:book)
-  end
+  subject(:book) { create(:book) }
 
   it 'has a valid factory' do
     is_expected.to be_valid

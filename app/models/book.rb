@@ -6,4 +6,6 @@ class Book < ApplicationRecord
             :publisher,
             :year,
             presence: true
+
+  has_many :rents
 end
