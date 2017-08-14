@@ -5,6 +5,8 @@ Metrics/BlockLength:
     - "**/*_spec.rb"
 LineLength:
    Max: 99
+   Exclude:
+   - "**/*_spec.rb"
 Rails/Blank:
   Description: 'Enforce using `blank?` and `present?`.'
   Enabled: false
