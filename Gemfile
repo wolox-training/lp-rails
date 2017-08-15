@@ -43,6 +43,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails', require: false
   gem 'rspec-rails', '~> 3.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

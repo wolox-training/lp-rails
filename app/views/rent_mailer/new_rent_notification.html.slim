@@ -1,0 +1,11 @@
+h1 New Rent created!
+p |Greetings #{@rent.user.first_name}, this is the information of your @rent:
+  |@rented from: #{@rent.from}
+  |Book details:
+  | Name: #{@rent.book.title}
+  | Author: #{@rent.book.author}
+  | Publisher: #{@rent.book.publisher}
+  | Year: #{@rent.book.year}
+  | Genre: #{@rent.book.genre}
+  |@rent ending date: #{@rent.to}
+i |Enjoy!

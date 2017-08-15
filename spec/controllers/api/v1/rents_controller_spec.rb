@@ -30,7 +30,7 @@ describe Api::V1::RentsController, type: :controller do
 
       before { post :create, params: { id: user.id, book_id: book.id, from: rent.from, to: rent.to } }
 
-      it 'responses with the rent json' do
+      it 'responds with the rent json' do
         rent.id = JSON.parse(response.body)['id']
         expect(response.body).to eq RentSerializer.new(
           rent, root: false

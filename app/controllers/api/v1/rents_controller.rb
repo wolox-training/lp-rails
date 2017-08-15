@@ -2,15 +2,22 @@ module Api
   module V1
     class RentsController < ApiController
       def create
+        from = DateTime.strptime(params[:from], '%s')
+        to = DateTime.strptime(params[:to], '%s')
         rent = Rent.create(user: current_user,
                            book: Book.find(params[:book_id]),
-                           from: params[:from],
-                           to: params[:to])
+                           from: from,
+                           to: to)
+
+        return unless rent.valid?
+        # should I put this in the Model under an after_commit callback?
         render json: rent
+        RentMailer.new_rent_notification(rent).deliver
+        RentMailWorker.perform_at(to, rent)
       end
 
       def index
-        rents = Rent.where(user_id: current_user.id)
+        rents = Rent.where(user: current_user)
         render json: rents
       end
     end

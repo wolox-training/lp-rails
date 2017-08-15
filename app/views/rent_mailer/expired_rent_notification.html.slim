@@ -1,0 +1,11 @@
+h1 Your rent has expired!
+i |Greetings #{@rent.user.first_name}, your rent:
+  |Rented from: #{@rent.date}
+  |Book details:
+  | Name: #{@rent.book.title}
+  | Author: #{@rent.book.author}
+  | Publisher: #{@rent.book.publisher}
+  | Year: #{@rent.book.year}
+  | Genre: #{@rent.book.genre}
+  |Rent ending date: #{@rent.to}
+h1 has expired! Please contact us to avoid going to jail.
