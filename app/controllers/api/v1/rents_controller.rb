@@ -12,7 +12,7 @@ module Api
         return unless rent.valid?
         # should I put this in the Model under an after_commit callback?
         render json: rent
-        RentMailer.new_rent_notification(rent).deliver
+        RentMailWorker.perform_async(rent)
         RentMailWorker.perform_at(to, rent)
       end
 

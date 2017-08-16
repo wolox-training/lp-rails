@@ -26,19 +26,17 @@ describe Api::V1::RentsController, type: :controller do
   describe 'POST #create' do
     context 'When creating a rent' do
       let!(:book) { create(:book) }
-      let!(:rent) { create(:rent, user: user, book: book) }
+      let(:rent) { create(:rent, user: user, book: book) }
 
-      before { post :create, params: { id: user.id, book_id: book.id, from: rent.from.to_datetime, to: rent.to.to_datetime } }
+      before {
+        post :create, params: { id: user.id, book_id: book.id, from: rent.from.to_time.to_i, to: rent.to.to_time.to_i }
+      }
 
       it 'responds with the rent json' do
         rent.id = JSON.parse(response.body)['id']
         expect(response.body).to eq RentSerializer.new(
           rent, root: false
         ).to_json
-      end
-
-      it 'responds with 200 status' do
-        expect(response).to have_http_status(:ok)
       end
     end
   end
