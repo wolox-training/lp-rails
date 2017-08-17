@@ -28,9 +28,9 @@ describe Api::V1::RentsController, type: :controller do
       let!(:book) { create(:book) }
       let(:rent) { create(:rent, user: user, book: book, from: DateTime.now, to: DateTime.now + 2.minutes) }
 
-      before {
+      before do
         post :create, params: { id: user.id, book_id: book.id, from: rent.from, to: rent.to }
-      }
+      end
 
       it 'responds with the rent json' do
         rent.id = JSON.parse(response.body)['id']
