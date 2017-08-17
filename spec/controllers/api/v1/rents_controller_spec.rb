@@ -10,7 +10,7 @@ describe Api::V1::RentsController, type: :controller do
 
       before { get :index, params: { id: user.id } }
 
-      it 'responses with the rents json' do
+      it 'responds with the rents json' do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
           rents, each_serializer: RentSerializer
         ).to_json
@@ -26,10 +26,10 @@ describe Api::V1::RentsController, type: :controller do
   describe 'POST #create' do
     context 'When creating a rent' do
       let!(:book) { create(:book) }
-      let(:rent) { create(:rent, user: user, book: book) }
+      let(:rent) { create(:rent, user: user, book: book, from: DateTime.now, to: DateTime.now + 2.minutes) }
 
       before {
-        post :create, params: { id: user.id, book_id: book.id, from: rent.from.to_time.to_i, to: rent.to.to_time.to_i }
+        post :create, params: { id: user.id, book_id: book.id, from: rent.from, to: rent.to }
       }
 
       it 'responds with the rent json' do

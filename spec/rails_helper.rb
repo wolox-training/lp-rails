@@ -21,6 +21,7 @@ require 'rspec/rails'
 # require only the support files necessary.
 #
 require 'factory_girl_rails'
+require 'capybara'
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.

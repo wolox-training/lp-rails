@@ -1,0 +1,10 @@
+p |= t(:mail_greetings) + @rent.user.first_name
+  |= t :mail_rent_info_title
+  |= t(:rent_from) + @rent.from
+  |= t :rent_bookdetails
+  | = t(:rent_booktitle) + @rent.book.title
+  | = t(:rent_bookauthor) + @rent.book.author
+  | = t(:rent_bookpublisher) + @rent.book.publisher
+  | = t(:rent_bookyear) + @rent.book.year
+  | = t(:rent_bookgenre) + @rent.book.genre
+  |= t(:rent_to) + @rent.to

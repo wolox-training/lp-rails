@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809180057) do
+ActiveRecord::Schema.define(version: 20170817175638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20170809180057) do
   create_table "rents", force: :cascade do |t|
     t.bigint "book_id"
     t.bigint "user_id"
-    t.date "from"
-    t.date "to"
+    t.datetime "from"
+    t.datetime "to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_rents_on_book_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170809180057) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "verification_code", null: false
+    t.string "locale", default: "en"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
