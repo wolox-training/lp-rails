@@ -26,7 +26,7 @@ describe Api::V1::RentsController, type: :controller do
   describe 'POST #create' do
     context 'When creating a rent' do
       let!(:book) { create(:book) }
-      let(:rent) { create(:rent, user: user, book: book, from: Time.zone.now, to: Time.zone.now + 2.minutes) }
+      let(:rent) { create(:rent, user: user, book: book, from: DateTime.now, to: DateTime.now + 2.minutes) }
 
       before do
         post :create, params: { id: user.id, book_id: book.id, from: rent.from, to: rent.to }
