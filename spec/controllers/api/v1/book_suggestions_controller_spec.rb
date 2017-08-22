@@ -22,6 +22,28 @@ describe Api::V1::BookSuggestionsController, type: :controller do
           book_suggestion, root: false
         ).to_json
       end
+
+      it 'responds with 201 status' do
+        expect(response).to have_http_status(:created)
+      end
+    end
+
+    context 'When creating an invalid user rent' do
+      before do
+        post :create, params: { title: nil }
+      end
+
+      it 'doesn\'t create a new rent' do
+        expect{ post :create, params: { title: nil } }.to change { BookSuggestion.count }.by(0)
+      end
+
+      it 'returns error messages' do
+        expect(response.body['error']).to be_present
+      end
+
+      it 'responds with 422 status' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
     end
   end
 end

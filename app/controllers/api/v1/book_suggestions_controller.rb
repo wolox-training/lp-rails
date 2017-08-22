@@ -5,7 +5,7 @@ module Api
 
       # rubocop:disable Metrics/AbcSize
       def create
-        book_suggestion = BookSuggestion.create!(editorial: params[:editorial],
+        book_suggestion = BookSuggestion.new(editorial: params[:editorial],
                                                  price: params[:price],
                                                  author: params[:author],
                                                  title: params[:title],
@@ -13,14 +13,20 @@ module Api
                                                  publisher: params[:publisher],
                                                  year: params[:year],
                                                  user: user)
-        render json: book_suggestion
+        render_error('Invalid parameters', :unprocessable_entity) and return unless book_suggestion.valid?
+        book_suggestion.save
+        render json: book_suggestion, status: :created
       end
       # rubocop:enable Metrics/AbcSize
 
       private
 
       def user
-        User.find(params[:user_id])
+        User.find_by_id(params[:user_id])
+      end
+
+      def render_error(error_message, status)
+        render json: { error: error_message }, status: status
       end
     end
   end
