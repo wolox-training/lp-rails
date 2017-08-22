@@ -10,7 +10,7 @@ describe Api::V1::RentsController, type: :controller do
 
       before { get :index, params: { id: user.id } }
 
-      it 'responses with the rents json' do
+      it 'responds with the rents json' do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
           rents, each_serializer: RentSerializer
         ).to_json
@@ -26,19 +26,17 @@ describe Api::V1::RentsController, type: :controller do
   describe 'POST #create' do
     context 'When creating a rent' do
       let!(:book) { create(:book) }
-      let!(:rent) { create(:rent, user: user, book: book) }
+      let(:rent) { create(:rent, user: user, book: book, from: DateTime.now, to: DateTime.now + 2.minutes) }
 
-      before { post :create, params: { id: user.id, book_id: book.id, from: rent.from, to: rent.to } }
+      before do
+        post :create, params: { id: user.id, book_id: book.id, from: rent.from, to: rent.to }
+      end
 
-      it 'responses with the rent json' do
+      it 'responds with the rent json' do
         rent.id = JSON.parse(response.body)['id']
         expect(response.body).to eq RentSerializer.new(
           rent, root: false
         ).to_json
-      end
-
-      it 'responds with 200 status' do
-        expect(response).to have_http_status(:ok)
       end
     end
   end

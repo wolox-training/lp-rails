@@ -3,7 +3,11 @@ class ApiController < ApplicationController
   rescue_from ActionController::ParameterMissing, with: :render_nothing_bad_req
   rescue_from ActiveRecord::RecordNotFound, with: :render_nothing_bad_req
   protect_from_forgery with: :null_session
-  before_action :current_user, :authenticate_request
+  before_action :current_user, :authenticate_request, :set_locale
+
+  def set_locale
+    I18n.locale = @current_user.locale || I18n.default_locale
+  end
 
   private
 

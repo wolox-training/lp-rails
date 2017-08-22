@@ -7,6 +7,14 @@ LineLength:
    Max: 99
    Exclude:
    - "**/*_spec.rb"
+Rails/TimeZone:
+   Exclude:
+   - "spec/factories/*.rb"
+   - "**/*_spec.rb"
+Rails/Date:
+   Exclude:
+   - "spec/factories/*.rb"
+   - "**/*_spec.rb"
 Rails/Blank:
   Description: 'Enforce using `blank?` and `present?`.'
   Enabled: false

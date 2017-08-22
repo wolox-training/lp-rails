@@ -29,18 +29,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  mail_rent_title_new: "New rent created!"
-  mail_rent_title_expired: "Your rent has expired!"
-  mail_greetings: "Greetings!"
-  mail_rent_firm_new: "has been created! Enjoy!"
-  mail_rent_firm_expired: "has expired! Please contact us to avoid going to jail."
-  mail_rent_info_title: "Your rent: "
-  rent_from: "Rented from: "
-  rent_bookdetails: 'Book details:'
-  rent_booktitle: "Title: "
-  rent_bookauthor: "Author: "
-  rent_bookpublisher: "Publisher: "
-  rent_bookyear: "Year: "
-  rent_bookgenre: "Genre: "
-  rent_to: "Rent ending date: "
+es:
+  mail_rent_title_new: "Nuevo libro rentado!"
+  mail_rent_title_expired: "Su renta ha expirado!"
+  mail_greetings: "Saludos!"
+  mail_rent_firm_new: "ha sido creada!"
+  mail_rent_firm_expired: "ha expirado! Por favor, contáctenos para evitar ir a prisión."
+  mail_rent_info_title: "Su renta: "
+  rent_from: "Rentado desde: "
+  rent_bookdetails: 'Detalles del libro:'
+  rent_booktitle: "Título: "
+  rent_bookauthor: "Autor: "
+  rent_bookpublisher: "Editorial: "
+  rent_bookyear: "Año: "
+  rent_bookgenre: "Género: "
+  rent_to: "Finalización de la renta: "

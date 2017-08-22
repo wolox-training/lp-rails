@@ -33,6 +33,16 @@ Rails.application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+      :authentication => secrets.mailer_authentication,
+      :address => secrets.mailer_address,
+      :port => secrets.mailer_port,
+      :domain => secrets.mailer_domain,
+      :user_name => secrets.mailer_user_name,
+      :password => secrets.mailer_password
+  }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
