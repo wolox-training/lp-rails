@@ -19,6 +19,11 @@ module Api
       end
       # rubocop:enable Metrics/AbcSize
 
+      def new
+        @suggestions = BookSuggestion.all
+        render template: 'api/v1/book_suggestions/new/index.html.slim'
+      end
+
       private
 
       def user
