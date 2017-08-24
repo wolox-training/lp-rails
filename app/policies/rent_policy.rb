@@ -1,5 +1,5 @@
 class RentPolicy < ApplicationPolicy
   def index?
-    @record.all { |rent| rent.user == current_user }
+    @record == current_user.id
   end
 end

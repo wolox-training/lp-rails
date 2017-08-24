@@ -7,14 +7,17 @@ describe Api::V1::BookSuggestionsController, type: :controller do
       let(:book_suggestion) { create(:book_suggestion, user: user) }
 
       before do
-        post :create, params: { user_id: user.id,
-                                editorial: book_suggestion.editorial,
-                                price: book_suggestion.price,
-                                author: book_suggestion.author,
-                                title: book_suggestion.title,
-                                link: book_suggestion.link,
-                                publisher: book_suggestion.publisher,
-                                year: book_suggestion.year }
+        post :create, params: { book_suggestion:
+                                    {
+                                      user_id: user.id,
+                                      editorial: book_suggestion.editorial,
+                                      price: book_suggestion.price,
+                                      author: book_suggestion.author,
+                                      title: book_suggestion.title,
+                                      link: book_suggestion.link,
+                                      publisher: book_suggestion.publisher,
+                                      year: book_suggestion.year
+                                    } }
       end
 
       it 'responds with the book suggestion json' do
@@ -34,7 +37,7 @@ describe Api::V1::BookSuggestionsController, type: :controller do
       end
 
       it 'doesn\'t create a new rent' do
-        expect{ post :create, params: { title: nil } }.to change { BookSuggestion.count }.by(0)
+        expect { post :create, params: { title: nil } }.to change { BookSuggestion.count }.by(0)
       end
 
       it 'returns error messages' do

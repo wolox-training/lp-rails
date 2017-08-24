@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # API Endpoints
-  api_version(module: 'api/v1', path: { value: 'api/v1' }, defaults: { format: :json }) do
+  api_version(module: 'api/v1', path: { value: 'api/v1' }, defaults: { format: %i[json html] }) do
     resources :users do
       member do
         resources :rents, only: %i[create index]
