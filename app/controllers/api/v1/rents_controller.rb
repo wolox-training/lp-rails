@@ -13,7 +13,7 @@ module Api
 
       def index
         rents = Rent.where(user: current_user)
-        #authorize rents
+        # authorize rents
         render json: rents
       end
 
