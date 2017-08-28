@@ -1,0 +1,18 @@
+h1 Suggestions list:
+ul#js-suggestions
+
+h1 Add suggestion
+= form_for(@book_suggestion, url: '/api/v1/book_suggestions', remote: true, format: :json) do |f|
+  = f.label :user_id
+  = f.text_field :user_id
+  = f.label :title
+  = f.text_field :title
+  = f.label :author
+  = f.text_field :author
+  = f.label :link
+  = f.text_field :link
+  = f.label :publisher
+  = f.text_field :publisher
+  = f.label :year
+  = f.text_field :year
+  = f.submit

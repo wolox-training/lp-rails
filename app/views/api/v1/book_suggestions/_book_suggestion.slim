@@ -1,0 +1,8 @@
+li
+  h2 = @suggestion.title
+  h3 = @suggestion.author
+  h3
+    a href= @suggestion.link
+  p |= @suggestion.publisher
+    |= @suggestion.year
+    |= "#{@suggestion.user.first_name} #{@suggestion.user.last_name}"

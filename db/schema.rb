@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818181516) do
+ActiveRecord::Schema.define(version: 20170825180534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,20 @@ ActiveRecord::Schema.define(version: 20170818181516) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "book_suggestions", force: :cascade do |t|
+    t.string "editorial"
+    t.float "price"
+    t.string "author", null: false
+    t.string "title", null: false
+    t.string "link", null: false
+    t.string "publisher"
+    t.string "year"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_book_suggestions_on_user_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "genre", default: "", null: false
     t.string "author", default: "", null: false
@@ -73,9 +87,15 @@ ActiveRecord::Schema.define(version: 20170818181516) do
     t.string "last_name", default: "", null: false
     t.string "verification_code", null: false
     t.string "locale", default: "en"
+    t.integer "sign_in_count"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "book_suggestions", "users"
   add_foreign_key "rents", "books"
   add_foreign_key "rents", "users"
 end
