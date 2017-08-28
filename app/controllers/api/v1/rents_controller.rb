@@ -12,8 +12,8 @@ module Api
       end
 
       def index
-        # authorize params[:id]
         rents = Rent.where(user: current_user)
+        # authorize rents
         render json: rents
       end
 
